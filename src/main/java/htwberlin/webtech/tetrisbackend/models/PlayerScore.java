@@ -8,7 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class PlayerScore {
-
-    int currentScore;
     int highScore;
 }

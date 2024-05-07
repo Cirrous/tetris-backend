@@ -11,9 +11,9 @@ import java.util.List;
 public class HomeController {
     @GetMapping("/highscores")
     public List<PlayerScore> index() {
-        PlayerScore score1 = new PlayerScore(99,99);
-        PlayerScore score2 = new PlayerScore(88,88);
-        PlayerScore score3 = new PlayerScore(77,77);
+        PlayerScore score1 = new PlayerScore(99);
+        PlayerScore score2 = new PlayerScore(88);
+        PlayerScore score3 = new PlayerScore(77);
         List highsScores = new ArrayList<PlayerScore>();
         highsScores.add(score1);
         highsScores.add(score2);
