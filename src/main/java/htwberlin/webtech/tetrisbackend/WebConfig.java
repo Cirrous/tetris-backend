@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedMethods("*")
-                .allowedOrigins("http://localhost:5175", "http://localhost:5176");
+                .allowedOrigins("http://localhost:5175", "http://localhost:5176", "https://tetris-frontend.onrender.com");
                 
                 
     }
