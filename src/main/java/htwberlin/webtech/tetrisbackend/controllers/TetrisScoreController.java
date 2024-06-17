@@ -19,8 +19,8 @@ public class TetrisScoreController {
         return service.saveScore(score);
     }
 
-    @PostMapping("/highscores")
-    public List<TetrisScore> getScores(@RequestBody TetrisScore score) {
+    @GetMapping("/highscores")
+    public List<TetrisScore> getScores() {
         return service.getAllScores();
     }
 
