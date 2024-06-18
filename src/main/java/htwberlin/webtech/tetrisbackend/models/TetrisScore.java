@@ -17,15 +17,20 @@ public class TetrisScore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String email;
+    private String password;
     private String name;
     private int highscore;
 
     public TetrisScore() {
     }
 
-    public TetrisScore(String name, int highscore) {
+    public TetrisScore(String name, int highscore, String email, String password) {
         this.name = name;
         this.highscore = highscore;
+        this.email = email;
+        this.password = password;
+
 
     }
 }
