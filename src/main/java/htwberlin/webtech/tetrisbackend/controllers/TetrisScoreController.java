@@ -14,9 +14,14 @@ public class TetrisScoreController {
     @Autowired
     TetrisScoreService service;
 
+    @PostMapping("/login")
+    public TetrisScore sendLogin(@RequestBody TetrisScore score) {
+        return service.login(score);
+    }
+
     @PostMapping("/newhighscore")
     public TetrisScore createScore(@RequestBody TetrisScore score) {
-        return service.saveScore(score);
+        return service.saveData(score);
     }
 
     @GetMapping("/highscores")
@@ -24,10 +29,9 @@ public class TetrisScoreController {
         return service.getAllScores();
     }
 
-    @GetMapping ("/highscores/{id}")
-    public TetrisScore getScore(@PathVariable String id) {
-        Long scoreId = Long.parseLong(id);
-        return service.getScore(scoreId);
+    @GetMapping ("/highscores/{identifier}")
+    public TetrisScore getScore(@PathVariable String identifier) {
+        return service.getUser(identifier);
     }
 
 }
