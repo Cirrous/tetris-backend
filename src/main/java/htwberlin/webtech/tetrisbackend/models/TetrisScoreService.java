@@ -12,8 +12,16 @@ public class TetrisScoreService {
     TetrisScoreRepository repo;
 
 
-    public TetrisScore saveData(TetrisScore data) {
-        return repo.save(data);
+    public TetrisScore saveHighScore(TetrisScore data) {
+        String identifier = data.getIdentifier();
+        Optional<TetrisScore> existingScore = repo.findByIdentifier(identifier);
+        if (existingScore.isPresent()) {
+            TetrisScore scoreToUpdate = existingScore.get();
+            scoreToUpdate.setHighscore(data.getHighscore());
+            return repo.save(scoreToUpdate);
+        } else {
+            throw new TetrisScoreException("Score could not be saved. User does not exist.");
+        }
     }
 
     public TetrisScore login(TetrisScore data) {

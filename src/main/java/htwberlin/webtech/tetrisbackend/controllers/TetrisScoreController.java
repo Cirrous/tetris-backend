@@ -1,7 +1,6 @@
 package htwberlin.webtech.tetrisbackend.controllers;
 
 import htwberlin.webtech.tetrisbackend.models.TetrisScore;
-import htwberlin.webtech.tetrisbackend.models.TetrisScoreRepository;
 import htwberlin.webtech.tetrisbackend.models.TetrisScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +14,13 @@ public class TetrisScoreController {
     TetrisScoreService service;
 
     @PostMapping("/login")
-    public TetrisScore sendLogin(@RequestBody TetrisScore score) {
-        return service.login(score);
+    public TetrisScore sendLogin(@RequestBody TetrisScore user) {
+        return service.login(user);
     }
 
     @PostMapping("/newhighscore")
     public TetrisScore createScore(@RequestBody TetrisScore score) {
-        return service.saveData(score);
+        return service.saveHighScore(score);
     }
 
     @GetMapping("/highscores")
