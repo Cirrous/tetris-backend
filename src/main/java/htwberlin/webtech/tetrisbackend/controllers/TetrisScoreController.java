@@ -19,8 +19,12 @@ public class TetrisScoreController {
     }
 
     @PostMapping("/newhighscore")
-    public TetrisScore createScore(@RequestBody TetrisScore score) {
+    public TetrisScore newScore(@RequestBody TetrisScore score) {
         return service.saveHighScore(score);
+    }
+
+    @PostMapping("/newName")
+    public TetrisScore newName(@RequestBody TetrisScore name) {return service.saveName(name);
     }
 
     @GetMapping("/highscores")
